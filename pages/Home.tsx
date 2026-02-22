@@ -22,7 +22,8 @@ const Home: React.FC = () => {
     {
       id: '1',
       title: 'Midjourney V6 核心精通：从入门到商业变现',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCAp-cCVuBg5JSnsKEBOrh8v0il2E7eef5ElVHdyYaHZfh014FMiYj8bs5E5LlfTo976er0NcSNSWdYiLanW_2-RbJawzzJifM6pSPqk4Jv25XHH9h4rNH2Kvw8EbQfVcuZoidTPhqVHV3ySWKjEM5QZQi4i6LQrztLh6ZnczWxWwJWrTaow1RH4MqRi2v9jqMSXTUlg2CjzJd9uEEXA27H4luC19RC3B36MjHmoYkZI6icCpQcNQdxYeCkIqIkx3neKU4k7a8BhX8',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=faces',
+      bgColor: 'bg-[#1e4d40]', // 深绿色
       price: 19.9,
       originalPrice: 299,
       activeUsers: 120
@@ -30,7 +31,8 @@ const Home: React.FC = () => {
     {
       id: '2',
       title: 'ChatGPT 高级指令秘籍：写出价值万元的Prompt',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDqn6VLXKaPIKDqBqX1Z881oygtx0Tq3U3npIGuFXr6sebSpchy9s-6N9B_jVSzHQkPe05G4KAMPOgPsDFRPicBaHyFXTccBouODTK0tD1iRtxdmuJ0DhjGixkRC6VPILLXy6FKfQHidjMf9aBAoIGgMPXtMaY50dRA7gZWhuwwo4Ea2JtvivHrmWB_dwAS9VmLm8ydeAbjwapJa1tygq2z3n0RXK5VASqViZ02m897WqoOsVc5dInJlzuhisemyiwd-BK_TzcpdsA',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces',
+      bgColor: 'bg-gray-100', // 浅灰色
       price: 9.9,
       originalPrice: 159,
       activeUsers: 85
@@ -38,7 +40,8 @@ const Home: React.FC = () => {
     {
       id: '3',
       title: 'Python 大模型应用开发：LangChain 实战指南',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCcZJn78AH0Ptib_SZ_z2800DjS743hcTbfOqpoGWFlZdSdk7HbwitGq8Ntg5Xsj5eTneKkU8vs8H1uSivvxRgyWdzBiN1DPM3GcLfXrwMga8kiQBiGFeiNStNHRi79HHNPqSHedQjfAbodDsH9TZnFraoEGIFfYrDA_1sXIWrB3gcZ_-ViuhxcyHKUBMj21uL1ZR6IyARKsCJUPjl61mjwQ6WqnyWYR_gEQPYAjgRIVUXy9LhvG2P4lv82BOdgitZc8Nr5aAq9M3Y',
+      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=faces',
+      bgColor: 'bg-[#2d3e50]', // 深蓝灰色
       price: 59.0,
       originalPrice: 899,
       activeUsers: 42
@@ -46,7 +49,8 @@ const Home: React.FC = () => {
     {
       id: '4',
       title: '企业级 AI 降本增效：从方案设计到工具落地',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBIjkozxDIdLQLGI1vxpafJz06BJjIE5hgmajpASlPlezH_2daeVXZAxfGtJktID_izW1-4gCw5KeZsI3eOW08Mg0D7JZDuZY0R0SFokMeJou9nignk6sYPEJnwkuGiXeIwQteY7nkZb1XH97VLWUA0OA1N80ovlMsh_mEPTt47H_Q34T_AmXX44FwmTlextTxA09B-Sl-OdUmTsrRnkrLKVTZKIsfqNqYSsqOPa_8ZBnD4KghYLMWIUXKAh3-TifcZhH4oJFeU6GU',
+      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=faces',
+      bgColor: 'bg-[#4a3f35]', // 深棕色
       price: 129,
       originalPrice: 1280,
       activeUsers: 18
@@ -114,29 +118,21 @@ const Home: React.FC = () => {
         {/* Grid */}
         <div className="grid grid-cols-2 gap-3 pb-4">
           {courses.map(course => (
-            <Link to={`/course/${course.id}`} key={course.id} className="bg-white rounded-xl overflow-hidden flex flex-col shadow-sm border border-border-subtle hover:shadow-md transition-all">
-              <div className="relative aspect-square">
-                <img src={course.image} className="w-full h-full object-cover" alt={course.title} />
-                <div className="absolute top-2 left-2 bg-white/90 backdrop-blur-md text-text-main text-[10px] px-2 py-1 rounded-full flex items-center gap-1 font-medium shadow-sm">
-                  <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+            <Link to={`/course/${course.id}`} key={course.id} className="bg-white rounded-2xl overflow-hidden flex flex-col shadow-sm border border-border-subtle hover:shadow-lg transition-all">
+              <div className={`relative aspect-[3/4] ${course.bgColor} flex items-end justify-center`}>
+                <img src={course.image} className="w-full h-full object-cover object-top" alt={course.title} />
+                <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-text-main text-xs px-2.5 py-1.5 rounded-full flex items-center gap-1.5 font-medium shadow-sm">
+                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                   {course.activeUsers}人正在拼
                 </div>
               </div>
               <div className="p-3 flex flex-col flex-1">
-                <h4 className="text-sm font-bold leading-snug line-clamp-2 mb-2">{course.title}</h4>
-                <div className="mt-auto pt-2 border-t border-dashed border-border-subtle">
-                  <div className="flex items-baseline gap-1 text-price-red">
-                    <span className="text-xs font-bold">¥</span>
-                    <span className="text-lg font-extrabold">{course.price}</span>
-                    <span className="text-[10px] text-text-sub line-through ml-1">¥{course.originalPrice}</span>
-                  </div>
-                  <div className="flex items-center justify-between mt-2">
-                    <div className="flex -space-x-1.5">
-                      {[1, 2, 3].map(i => (
-                        <div key={i} className="w-4 h-4 rounded-full bg-gray-200 border border-white"></div>
-                      ))}
-                    </div>
-                    <button className="bg-price-red text-white text-[10px] font-bold px-3 py-1.5 rounded-full">去拼团</button>
+                <h4 className="text-sm font-bold leading-snug line-clamp-2 mb-3 min-h-[40px]">{course.title}</h4>
+                <div className="mt-auto">
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-xs font-bold text-price-red">¥</span>
+                    <span className="text-2xl font-extrabold text-price-red">{course.price}</span>
+                    <span className="text-xs text-text-sub line-through ml-1">¥{course.originalPrice}</span>
                   </div>
                 </div>
               </div>
